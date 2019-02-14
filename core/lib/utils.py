@@ -203,10 +203,6 @@ def get_cmd_path(exe_name):
 	return None
 
 
-def get_phantomjs_cmd():
-	return [get_cmd_path("phantomjs"), "--ignore-ssl-errors=yes", "--web-security=false", "--ssl-protocol=any", "--debug=false"]
-
-
 def get_node_cmd():
 	c = get_cmd_path("node")
 	if not c:

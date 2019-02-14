@@ -70,7 +70,7 @@ class Login(BaseUtil):
 				format = o
 
 		if not passw:
-			print "The password is hidden here BUT it will be passed to phantomjs via commandline ..."
+			print "The password is hidden here BUT it will be passed to node via the commandline ..."
 			try:
 				passw = getpass.getpass()
 			except KeyboardInterrupt:
@@ -78,7 +78,7 @@ class Login(BaseUtil):
 				sys.exit(0)
 
 		jspath = "%s%s%s%s" % (getrealdir(__file__), "login", os.sep, "login.js")
-		cmd = get_phantomjs_cmd() + [jspath, args[0], args[1], passw]
+		cmd = get_node_cmd() + [jspath, args[0], args[1], passw]
 		if len(args) > 2: cmd.append(args[2])
 		#print cmd_to_str(cmd)
 		exe = CommandExecutor(cmd, True)
